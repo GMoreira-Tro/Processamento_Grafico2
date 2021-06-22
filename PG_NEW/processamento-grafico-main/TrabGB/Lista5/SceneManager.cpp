@@ -5,7 +5,7 @@ static GLuint width, height, baseWidht, baseHeight;
 static float mouseXPosition;
 static float mouseYPosition;
 static bool enterIsPressing = false;
-static bool filtersArePressing[8] = { false };
+static bool filtersArePressing[11] = { false };
 static bool saveIsPressing = false;
 
 void SceneManager::initialize(GLuint w, GLuint h, string windowName, string texturePath)
@@ -134,9 +134,36 @@ void SceneManager::checkFilters()
 		filtersArePressing[7] = true;
 		sprites[0]->channel ^= 128;
 	}
+	else if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+	{
+		if (filtersArePressing[8] == true)
+		{
+			return;
+		}
+		filtersArePressing[8] = true;
+		sprites[0]->channel ^= 256;
+	}
+	else if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+	{
+		if (filtersArePressing[9] == true)
+		{
+			return;
+		}
+		filtersArePressing[9] = true;
+		sprites[0]->channel ^= 512;
+	}
+	else if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+	{
+		if (filtersArePressing[10] == true)
+		{
+			return;
+		}
+		filtersArePressing[10] = true;
+		sprites[0]->channel ^= 1024;
+	}
 	else
 	{
-		for (int i = 0; i < 8; i++)
+		for (int i = 0; i < 11; i++)
 		{
 			filtersArePressing[i] = false;
 		}

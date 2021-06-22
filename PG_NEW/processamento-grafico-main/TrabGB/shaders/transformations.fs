@@ -62,4 +62,25 @@ void main()
             color = vec4(1,1,1,1);
         }
     }
+    if((channel & 256) != 0)
+    {
+        if((color.r + color.g + color.b)/3 > 0.99)
+        {
+            color = vec4(1,0,0,1);
+        }
+    }
+    if((channel & 512) != 0)
+    {
+        if((color.r + color.g + color.b)/3 > 0.99)
+        {
+            color = vec4(0,1,0,1);
+        }
+    }
+    if((channel & 1024) != 0)
+    {
+        if((color.r + color.g + color.b)/3 > 0.99)
+        {
+            color = vec4(0,0,1,1);
+        }
+    }
 }
