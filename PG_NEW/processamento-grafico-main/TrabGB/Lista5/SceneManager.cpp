@@ -5,7 +5,7 @@ static GLuint width, height, baseWidht, baseHeight;
 static float mouseXPosition;
 static float mouseYPosition;
 static bool enterIsPressing = false;
-static bool filtersArePressing[11] = { false };
+static bool filtersArePressing[16] = { false };
 static bool saveIsPressing = false;
 
 void SceneManager::initialize(GLuint w, GLuint h, string windowName, string texturePath)
@@ -64,7 +64,7 @@ void SceneManager::checkFilters()
 {
 	if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)
 	{
-		if (filtersArePressing[0] == true)
+		if (filtersArePressing[0])
 		{
 			return;
 		}
@@ -73,7 +73,7 @@ void SceneManager::checkFilters()
 	}
 	else if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS)
 	{
-		if (filtersArePressing[1] == true)
+		if (filtersArePressing[1])
 		{
 			return;
 		}
@@ -82,7 +82,7 @@ void SceneManager::checkFilters()
 	}
 	else if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS)
 	{
-		if (filtersArePressing[2] == true)
+		if (filtersArePressing[2])
 		{
 			return;
 		}
@@ -91,7 +91,7 @@ void SceneManager::checkFilters()
 	}
 	else if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS)
 	{
-		if (filtersArePressing[3] == true)
+		if (filtersArePressing[3])
 		{
 			return;
 		}
@@ -100,7 +100,7 @@ void SceneManager::checkFilters()
 	}
 	else if (glfwGetKey(window, GLFW_KEY_5) == GLFW_PRESS)
 	{
-		if (filtersArePressing[4] == true)
+		if (filtersArePressing[4])
 		{
 			return;
 		}
@@ -109,7 +109,7 @@ void SceneManager::checkFilters()
 	}
 	else if (glfwGetKey(window, GLFW_KEY_6) == GLFW_PRESS)
 	{
-		if (filtersArePressing[5] == true)
+		if (filtersArePressing[5])
 		{
 			return;
 		}
@@ -118,7 +118,7 @@ void SceneManager::checkFilters()
 	}
 	else if (glfwGetKey(window, GLFW_KEY_7) == GLFW_PRESS)
 	{
-		if (filtersArePressing[6] == true)
+		if (filtersArePressing[6])
 		{
 			return;
 		}
@@ -127,7 +127,7 @@ void SceneManager::checkFilters()
 	}
 	else if (glfwGetKey(window, GLFW_KEY_8) == GLFW_PRESS)
 	{
-		if (filtersArePressing[7] == true)
+		if (filtersArePressing[7])
 		{
 			return;
 		}
@@ -136,7 +136,7 @@ void SceneManager::checkFilters()
 	}
 	else if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
 	{
-		if (filtersArePressing[8] == true)
+		if (filtersArePressing[8])
 		{
 			return;
 		}
@@ -145,7 +145,7 @@ void SceneManager::checkFilters()
 	}
 	else if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
 	{
-		if (filtersArePressing[9] == true)
+		if (filtersArePressing[9])
 		{
 			return;
 		}
@@ -154,16 +154,61 @@ void SceneManager::checkFilters()
 	}
 	else if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 	{
-		if (filtersArePressing[10] == true)
+		if (filtersArePressing[10])
 		{
 			return;
 		}
 		filtersArePressing[10] = true;
 		sprites[0]->channel ^= 1024;
 	}
+	else if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
+	{
+		if (filtersArePressing[11])
+		{
+			return;
+		}
+		filtersArePressing[11] = true;
+		sprites[0]->channel ^= 2048;
+	}
+	else if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
+	{
+		if (filtersArePressing[12])
+		{
+			return;
+		}
+		filtersArePressing[12] = true;
+		sprites[0]->channel ^= 4096;
+	}
+	else if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS)
+	{
+		if (filtersArePressing[13])
+		{
+			return;
+		}
+		filtersArePressing[13] = true;
+		sprites[0]->channel ^= (2 << 12);
+	}
+	else if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS)
+	{
+		if (filtersArePressing[14])
+		{
+			return;
+		}
+		filtersArePressing[14] = true;
+		sprites[0]->channel ^= (2 << 13);
+	}
+	else if (glfwGetKey(window, GLFW_KEY_V) == GLFW_PRESS)
+	{
+		if (filtersArePressing[15])
+		{
+			return;
+		}
+		filtersArePressing[15] = true;
+		sprites[0]->channel ^= (2 << 14);
+	}
 	else
 	{
-		for (int i = 0; i < 11; i++)
+		for (int i = 0; i < 16; i++)
 		{
 			filtersArePressing[i] = false;
 		}

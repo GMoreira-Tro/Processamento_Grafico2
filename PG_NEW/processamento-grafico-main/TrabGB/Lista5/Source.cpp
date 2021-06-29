@@ -30,7 +30,7 @@ int main()
         }
         else if (choice == '3')
         {
-            path = "../textures/sam.jpg";
+            path = "../textures/Tanjiro-kun.jpg";
             break;
         }
         else if (choice == '4')

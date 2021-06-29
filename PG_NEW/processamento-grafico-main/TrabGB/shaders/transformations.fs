@@ -83,4 +83,27 @@ void main()
             color = vec4(0,0,1,1);
         }
     }
+    if((channel & 2048) != 0)
+    {
+        if((color.b > color.r * 1.1))
+        {
+            color = vec4(color.r, color.g, 1 - color.b, 1);
+        }
+    }
+    if((channel & 4096) != 0)
+    {
+        color = vec4(color.r, color.g, 0, 1);
+    }
+    if((channel & (2 << 12)) != 0)
+    {
+        color = vec4(color.r, 0, color.b, 1);
+    }
+    if((channel & (2 << 13)) != 0)
+    {
+        color = vec4(0, color.g, color.b, 1);
+    }
+    if((channel & (2 << 14)) != 0)
+    {
+        color = vec4(color.r, color.g/2, 0, 1);
+    }
 }
